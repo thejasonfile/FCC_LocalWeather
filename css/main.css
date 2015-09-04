@@ -1,0 +1,57 @@
+body {
+	background: linear-gradient(#000, transparent 120%),
+	url("https://dl.dropboxusercontent.com/u/755079/images/weather/default.jpg") no-repeat;
+	background-size: cover;
+	margin: 0;
+	background-attachment: fixed;
+	text-align: center;
+}
+
+div {
+	color: white;
+}
+
+#title,
+#subtitle {
+	color: white;
+}
+
+#subtitle {
+	margin-bottom: 1em;
+}
+
+#title {
+	margin-top: 3em;
+}
+
+img {
+	padding: 1em 0 0 3em;
+}
+
+#condition {
+	font-size: 4em;
+}
+
+#currenttemp {
+	font-size: 8em;
+	margin-bottom: 0.125em;
+}
+
+#hiandlo {
+	font-size: 2em;
+}
+
+.transparency {
+	background: rgba(240, 240, 240, 0.7);
+	height: 100%;
+}
+
+.transparency-left {
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.transparency-right {
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
