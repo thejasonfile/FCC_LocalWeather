@@ -1,0 +1,98 @@
+// // Docs at http://simpleweatherjs.com
+
+// /* Does your browser support geolocation? */
+// if ("geolocation" in navigator) {
+//   $('.js-geolocation').show(); 
+// } else {
+//   $('.js-geolocation').hide();
+// }
+
+// /* Where in the world are you? */
+// $(document).on('ready', function() {
+//   navigator.geolocation.getCurrentPosition(function(position) {
+//     loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+//   });
+// });
+
+// /* 
+// * Test Locations
+// * Austin lat/long: 30.2676,-97.74298
+// * Austin WOEID: 2357536
+// */
+
+// $(document).ready(function() {
+//   loadWeather('',''); //@params location, woeid
+// });
+
+// function loadWeather(location, woeid) {
+//   $.simpleWeather({
+//     location: location,
+//     woeid: woeid,
+//     unit: 'f',
+//     success: function(weather) {
+//       city = weather.city+', '+weather.region;
+//       conditions = '<span id="condition">'+weather.currently+'</span>';
+//       image = '<img src='+weather.image+'>';
+//       currentTemp = '<div id="currenttemp"><span>'+weather.temp+'&deg;'+weather.units.temp+'</span></div>';
+//       hiTemp = '<div id="hitemp"><span>High: '+weather.high+'&deg'+weather.units.temp+' </span></div>';
+//       loTemp = '<div id="lotemp"><span>Low: '+weather.low+'&deg'+weather.units.temp+' </span></div>';
+
+//       $("#subtitle").append(city);
+//       $("#weatherimage").html(image).append(conditions);
+//       $("#temps").prepend(currentTemp);
+//       $("#hiandlo").html(loTemp).append(hiTemp);
+//     },
+//     error: function(error) {
+//       $("#weather").html('<p>'+error+'</p>');
+//     }
+//   });
+// }
+
+// Docs at http://simpleweatherjs.com
+
+/* Does your browser support geolocation? */
+if ("geolocation" in navigator) {
+  $('.js-geolocation').show(); 
+} else {
+  $('.js-geolocation').hide();
+}
+
+/* Where in the world are you? */
+$('#title').on('click', function() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+  });
+});
+
+/* 
+* Test Locations
+* Austin lat/long: 30.2676,-97.74298
+* Austin WOEID: 2357536
+*/
+$(document).ready(function() {
+  loadWeather('',''); //@params location, woeid
+});
+
+function loadWeather(location, woeid) {
+  $.simpleWeather({
+    location: location,
+    woeid: woeid,
+    unit: 'f',
+    success: function(weather) {
+      city = weather.city+', '+weather.region;
+      conditions = '<span id="condition">'+weather.currently+'</span>';
+      image = '<img src='+weather.image+'>';
+      currentTemp = '<div id="currenttemp"><span>'+weather.temp+'&deg;'+weather.units.temp+'</span></div>';
+      hiTemp = '<div id="hitemp"><span>High: '+weather.high+'&deg'+weather.units.temp+' </span></div>';
+      loTemp = '<div id="lotemp"><span>Low: '+weather.low+'&deg'+weather.units.temp+' </span></div>';
+
+      $("#subtitle").append(city);
+      $("#weatherimage").html(image).append(conditions);
+      $("#temps").prepend(currentTemp);
+      $("#hiandlo").html(loTemp).append(hiTemp);
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+}
