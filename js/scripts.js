@@ -1,8 +1,13 @@
-var URL = "http://api.openweathermap.org/data/2.5/weather?q=NewYork&appid=bd82977b86bf27fb59a04b61b657fb6f"
-var weatherData = {
-		units: "imperial"
-}
+var URL1 = "http://api.wunderground.com/api/f6707df2a16e713d/conditions/q/NY/New_York.json"
 function displayWeather(data) {
-	$("#weatherimage").html(data.main.temp)
+	var weatherHTML = "<p>Conditions for " + data.current_observation.display_location.city + " </p>";
+	weatherHTML += "<p>" + data.current_observation.temperature_string + "</p>";
+	weatherHTML += "<p>Feels like " + data.current_observation.feelslike_string + "</p>"
+	weatherHTML += "<img src=" + data.current_observation.icon_url + ">";
+	$("#weatherimage").html(weatherHTML);
 }
-$.getJSON(URL, weatherData, displayWeather)
+
+var URL2 = "http://api.wunderground.com/api/f6707df2a16e713d/forecast/q/NY/New_York.json"
+
+$.getJSON(URL1, displayWeather);
+$.getJSON(URL2, displayWeather);
