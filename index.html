@@ -13,18 +13,18 @@
 </head>
 <body>
 	<h1 id="title">Free Code Camp - Local Weather Zipline</h1>
-	<h3 id="subtitle">Current weather and 5-day forcast for </h3>
+	<h3 id="subtitle">Current weather and 3-day forcast for </h3>
 	<div class="container">
-		<div class="row">
+		<div class="row" id="current">
 			<div class="col-md-6 col-md-offset-3 transparency">
 				<div class="col-md-6" id="weatherimage"><br/></div>
 				<div class="col-md-6" id="temps"><br/></div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-3 transparency" id="day1"></div>
-			<div class="col-md-3 transparency" id="day2"></div>
-			<div class="col-md-3 transparency" id="day3"></div>
+		<div class="row" id="forecasts">
+			<div class="col-md-3 col-md-offset-1 transparency forecast" id="day1"></div>
+			<div class="col-md-3 transparency forecast" id="day2"></div>
+			<div class="col-md-3 transparency forecast" id="day3"></div>
 		</div>
 	</div>
 	<script type="text/javascript" src="js/jquery.simpleWeather.min.js"></script>
