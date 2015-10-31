@@ -20,6 +20,10 @@ div {
 	margin-bottom: 1em;
 }
 
+#subtitle input {
+	color: black;
+}
+
 #title {
 	margin-top: 3em;
 }
