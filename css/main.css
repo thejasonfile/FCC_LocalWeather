@@ -24,16 +24,16 @@ img {
 	color: white;
 }
 
+#title {
+	margin-top: 3em;
+}
+
 #subtitle {
 	margin-bottom: 1em;
 }
 
-#subtitle input {
-	color: black;
-}
-
-#title {
-	margin-top: 3em;
+.selected {
+	border: white 1px solid;
 }
 
 .transparency {
