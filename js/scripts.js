@@ -8,16 +8,12 @@ function setUnits(data) {
 	currentConditions = data.current_observation;
 	forecast = data.forecast.simpleforecast.forecastday;
 	currentLocation = currentConditions.display_location.full;
-	i = 0;
 	if ($("#unit_f").hasClass("selected")) {
 		temp = currentConditions.temp_f;
 		feelsLike = currentConditions.feelslike_f;
 		precip = currentConditions.precip_today_in;
 		loTemp = forecast[0].low.fahrenheit;
 		hiTemp = forecast[0].high.fahrenheit;
-		forecastLow = forecast[i+1].low.fahrenheit;
-		forecastHigh = forecast[i+1].high.fahrenheit;
-		forecastPrecip = forecast[i+1].qpf_allday.in;
 		unit = "F&deg;";
 		measure = "in";
 	} else {
@@ -26,9 +22,6 @@ function setUnits(data) {
 		precip = currentConditions.precip_today_metric;
 		loTemp = forecast[0].low.celsius;
 		hiTemp = forecast[0].high.celsius;
-		forecastLow = forecast[i+1].low.celsius;
-		forecastHigh = forecast[i+1].high.celsius;
-		forecastPrecip = forecast[i+1].qpf_allday.mm;
 		unit = "C&deg;";
 		measure = "mm";
 	}
@@ -55,6 +48,16 @@ function currentWeather(){
 
 	//create loop to add this to all 3 forecast days
 	for (i=0; i<=3; i++) {
+		if ($("#unit_f").hasClass("selected")) {
+			forecastLow = forecast[i+1].low.fahrenheit;
+			forecastHigh = forecast[i+1].high.fahrenheit;
+			forecastPrecip = forecast[i+1].qpf_allday.in;
+		} else {
+			forecastLow = forecast[i+1].low.celsius;
+			forecastHigh = forecast[i+1].high.celsius;
+			forecastPrecip = forecast[i+1].qpf_allday.mm;
+		}
+		
 		var forecastDayHTML = "<p>" + forecast[i+1].date.weekday + "</p>";
 		forecastDayHTML += "<p>" + forecast[i+1].conditions + "</p>";
 		forecastDayHTML += "<p><img class='weatherimage' src=" + forecast[i+1].icon_url + "></img>";
