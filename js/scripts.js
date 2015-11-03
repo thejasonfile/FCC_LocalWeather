@@ -25,7 +25,6 @@ function setUnits(data) {
 		unit = "C&deg;";
 		measure = "mm";
 	}
-	console.log(loTemp);
 	currentWeather();
 }
 
@@ -34,7 +33,7 @@ function currentWeather(){
 	var weatherGif = "<img class='weatherimage' src=" + currentConditions.icon_url + "></img>";
 	var weatherHTML = "<p id='condition'>Current Conditions for<br>" + currentLocation + "</p>";
 	weatherHTML += weatherGif + "</br>";
-	weatherHTML += "<p>" + weather + "</p>";
+	weatherHTML += "<p id='weathertype'>" + weather + "</p>";
 
 	var forecastHTML = "<p id='currenttemp'>" + temp + unit + "</p>";
 	forecastHTML += "<p>Feels like: " + feelsLike + unit;
@@ -71,8 +70,31 @@ function currentWeather(){
 	setBackground();
 }
 
-function setBackground(currentConditions) {
-
+function setBackground() {
+	var source = $("#weathertype").text();
+	if (source.toLowerCase().indexOf("rain") != -1 || source.toLowerCase().indexOf("sleet") != -1) {
+		$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/rain.jpg')");
+	}	
+	else if (source.toLowerCase().indexOf("cloudy") != -1) {
+		$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/clouds.jpg')");
+	}	
+	else if (source.toLowerCase().indexOf("sunny") != -1 || source.toLowerCase().indexOf("clear") != -1) {
+		if (source.toLowerCase().indexOf("nt") != -1) {
+			$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/moon.jpg')");
+		}
+		else {
+			$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/sunny.jpg')");
+		}
+	}	
+	else if (source.toLowerCase().indexOf("snow") != -1 || source.toLowerCase().indexOf("flurries") != -1) {
+		$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/snow.jpg')");
+	}	
+	else if (source.toLowerCase().indexOf("fog") != -1 || source.toLowerCase().indexOf("hazy") != -1) {
+		$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/fog.jpg')");
+	}
+	else {
+		$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/storms.jpg')");
+	}
 }
 
 callAPI();

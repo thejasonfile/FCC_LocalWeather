@@ -1,6 +1,5 @@
 body {
-	background: linear-gradient(#000, transparent 120%),
-	url("https://dl.dropboxusercontent.com/u/755079/images/weather/default.jpg") no-repeat;
+	background: linear-gradient(#000, transparent 120%);
 	background-size: cover;
 	margin: 0;
 	background-attachment: fixed;
