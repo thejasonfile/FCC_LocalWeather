@@ -46,7 +46,7 @@ function currentWeather(){
 	$("#temps").html(forecastHTML);
 
 	//create loop to add this to all 3 forecast days
-	for (i=0; i<=3; i++) {
+	for (i=0; i<=2; i++) {
 		if ($("#unit_f").hasClass("selected")) {
 			forecastLow = forecast[i+1].low.fahrenheit;
 			forecastHigh = forecast[i+1].high.fahrenheit;
@@ -66,7 +66,6 @@ function currentWeather(){
 
 		$($(".forecast")[i]).html(forecastDayHTML);
 	}
-
 	setBackground();
 }
 

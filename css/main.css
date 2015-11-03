@@ -4,10 +4,7 @@ body {
 	margin: 0;
 	background-attachment: fixed;
 	text-align: center;
-}
-
-div {
-	color: white;
+	color: black;
 }
 
 img {
@@ -40,7 +37,7 @@ img {
 }
 
 .transparency {
-	background: rgba(240, 240, 240, 0.7);
+	background: rgba(240, 240, 240, 1);
 	height: 100%;
 	border-radius: 15px;
 }
