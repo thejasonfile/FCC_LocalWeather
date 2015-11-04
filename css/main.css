@@ -84,6 +84,17 @@ img {
 	color: rgba(228,0,0,1);
 }
 
+#logorow{
+	width: 20%;
+	margin: 0 auto 2em;
+	padding: 0.5em 0 0.5em 0;
+}
+
+#logo {
+	height: 3em;
+	width: 100%;
+}
+
 @media (max-width: 1200px) {
 	#currenttemp {
 		font-size: 2em;
@@ -109,5 +120,11 @@ img {
 
 	#day1, #day2 {
 		margin-bottom: 1em;
+	}
+}
+
+@media (max-width: 735px) {
+	#logorow {
+		width: 40%;
 	}
 }
