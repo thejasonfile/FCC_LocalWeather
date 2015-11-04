@@ -1,7 +1,8 @@
 body {
 	background: linear-gradient(#000, transparent 120%);
 	background-size: cover;
-	margin: 0;
+	background-position: center;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 	text-align: center;
 	color: black;
@@ -37,7 +38,7 @@ img {
 }
 
 .transparency {
-	background: rgba(240, 240, 240, 1);
+	background: rgba(240, 240, 240, 0.9);
 	height: 100%;
 	border-radius: 15px;
 }
@@ -81,4 +82,32 @@ img {
 
 .hi {
 	color: rgba(228,0,0,1);
+}
+
+@media (max-width: 1200px) {
+	#currenttemp {
+		font-size: 2em;
+	}
+
+	.lo, .hi {
+		font-size: 0.8em;
+	}
+}
+
+@media (max-width: 992px) {
+	.row {
+		margin: 0 auto 1em;
+	}
+
+	#forecasts {
+		margin: 0 auto 1em;
+	}
+
+	#day2 {
+		margin: 0;
+	}
+
+	#day1, #day2 {
+		margin-bottom: 1em;
+	}
 }

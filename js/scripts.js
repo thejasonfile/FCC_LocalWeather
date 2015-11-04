@@ -30,7 +30,7 @@ function setUnits(data) {
 
 function currentWeather(){
 	var weather = currentConditions.weather;
-	var weatherGif = "<img class='weatherimage' src=" + currentConditions.icon_url + "></img>";
+	var weatherGif = "<img id='currentimage' src=" + currentConditions.icon_url + "></img>";
 	var weatherHTML = "<p id='condition'>Current Conditions for<br>" + currentLocation + "</p>";
 	weatherHTML += weatherGif + "</br>";
 	weatherHTML += "<p id='weathertype'>" + weather + "</p>";
@@ -70,25 +70,25 @@ function currentWeather(){
 }
 
 function setBackground() {
-	var source = $("#weathertype").text();
-	if (source.toLowerCase().indexOf("rain") != -1 || source.toLowerCase().indexOf("sleet") != -1) {
+	var source = $("#currentimage").attr('src');
+	if (source.indexOf("rain") != -1 || source.indexOf("sleet") != -1) {
 		$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/rain.jpg')");
 	}	
-	else if (source.toLowerCase().indexOf("cloudy") != -1) {
+	else if (source.indexOf("cloudy") != -1) {
 		$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/clouds.jpg')");
 	}	
-	else if (source.toLowerCase().indexOf("sunny") != -1 || source.toLowerCase().indexOf("clear") != -1) {
-		if (source.toLowerCase().indexOf("nt") != -1) {
+	else if (source.indexOf("sunny") != -1 || source.indexOf("clear") != -1) {
+		if (source.indexOf("nt") != -1) {
 			$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/moon.jpg')");
 		}
 		else {
 			$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/sunny.jpg')");
 		}
 	}	
-	else if (source.toLowerCase().indexOf("snow") != -1 || source.toLowerCase().indexOf("flurries") != -1) {
+	else if (source.indexOf("snow") != -1 || source.indexOf("flurries") != -1) {
 		$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/snow.jpg')");
 	}	
-	else if (source.toLowerCase().indexOf("fog") != -1 || source.toLowerCase().indexOf("hazy") != -1) {
+	else if (source.indexOf("fog") != -1 || source.indexOf("hazy") != -1) {
 		$("body").css("background-image","url('https://dl.dropboxusercontent.com/u/755079/images/weather/fog.jpg')");
 	}
 	else {
