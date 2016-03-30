@@ -1,4 +1,12 @@
-var URL = "http://api.wunderground.com/api/f6707df2a16e713d/geolookup/conditions/forecast/q/autoip.json"
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    $("#data").html("latitude: " + position.coords.latitude + "<br>longitude: " + position.coords.longitude);
+  });
+}
+
+// var URL = "http://api.wunderground.com/api/f6707df2a16e713d/geolookup/conditions/forecast/q/autoip.json"
+
+var URL = "http://api.wunderground.com/api/f6707df2a16e713d/geolookup/conditions/forecast/q/37.776289,-122.395234.json"
 
 function callAPI() {
 	$.getJSON(URL, setUnits);
